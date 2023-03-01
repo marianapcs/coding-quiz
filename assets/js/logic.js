@@ -12,8 +12,25 @@ var submit = document.getElementById("submit");
 var opinion = document.getElementById("feedback");
 
 // * A start button that when clicked a timer starts and the first question appears.
+// create a function that starts quix on clicking start and starts the timer
+
+let seconds = 60;
+
+function setTime () {
+    var timeLeft = setInterval (function (){
+        seconds --;
+        timer.textContent = seconds;
+//need to set it so that when timer reaches 0 the quiz finishes
+        if (secondsLeft <= 0) {
+            clearInterval(timeLeft);
+            finishQuiz ();
+        }
+    }, 1000);
+}
  
 //   * Questions contain buttons for each answer.
+//Set variables to create buttons for each possible answer
+var 
 //   * 
 //   * When answer is clicked, the next question appears
 //   * 

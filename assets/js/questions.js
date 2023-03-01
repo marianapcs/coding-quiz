@@ -1,24 +1,24 @@
 //creating questions array
 
 let questions = [{
-    question: "What is the element called that is used to describe the set of variables, objects and fucntions you have access to?",
+    question: "What is the element called that is used to describe the set of variables, objects and functions you have access to?",
     options: {
-        1: "Restriction",
-        2: "Scope",
-        3: "Range",
-        4: "Output level",
+        1: "a. Restriction",
+        2: "b. Scope",
+        3: "c. Range",
+        4: "d. Output level",
     },
-    answer: "",
+    answer: "b",
 },
 {
     question: "What is the element called that can continue to execute a block of code as long as the specified condition remains TRUE?",
     options: {
-        1: "Debugger",
-        2: "Clone",
-        3: "Loop",
-        4: "Repeater",
+        1: "a. Debugger",
+        2: "b. Clone",
+        3: "c. Loop",
+        4: "d. Repeater",
     },
-    answer: "",
+    answer: "c",
 },
 {
     question: "Which method calls a function for each element in an array?",
@@ -31,14 +31,14 @@ let questions = [{
     answer: "4",
 },
 {
-    question: "",
+    question: "String values must be enclosed within ______ when assigned to variables.",
     options: {
-        1: "",
-        2: "",
-        3: "",
-        4: "",
+        1: "a. commas",
+        2: "b. quotes",
+        3: "c. curly brackets",
+        4: "d. parentheses",
     },
-    answer: "",
+    answer: "c",
 },
 {
     question: "Arrays in Javascript can be used to store ...?",
