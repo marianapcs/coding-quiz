@@ -26,13 +26,66 @@ function quizStart () {
             initialForm (); //create an initials form function when timer runs out to fill out your initials for the final score
         }
     }, 1000);
-
+    
 }
 
+//need to set it so that when timer reaches 0 the quiz finishes
 
 // Timer that counts down from 60 seconds
 var timeLeft =60;
 var timerEl = document.getElementById("time");
+
+
+//   * Questions contain buttons for each answer.
+//Set variables to create buttons for each possible answer
+var answer1 = document.createElement("button");
+var answer2 = document.createElement("button");
+var answer3 = document.createElement("button");
+var answer4 = document.createElement("button");
+
+//create a function for your quiz questions to appear once you have clicked start
+var questionIndex = 0;
+
+
+function quizQs (questionsArray) {
+    var titleEl = document.getElementById("#question-title");
+    titleEl.innerText = questions[questionIndex].question;
+//  titleEl.setAttribute("class", "display");
+ 
+
+ 
+}
+
+// function displayQuestions(questionsArray) {
+//   var questionIndex = 0;
+//   var questionContainer = document.getElementById("question-container");
+  
+//   function showQuestion() {
+//     questionContainer.innerHTML = questionsArray[questionIndex].question;
+//   }
+  
+//   showQuestion();
+  
+//   document.getElementById("next-button").addEventListener("click", function() {
+//     questionIndex++;
+//     if (questionIndex < questionsArray.length) {
+//       showQuestion();
+//     } else {
+//       questionContainer.innerHTML = "End of quiz";
+//     }
+//   });
+// }
+
+// var questions = [
+//   { question: "What is the capital of France?", answer: "Paris" },
+//   { question: "Who painted the Mona Lisa?", answer: "Leonardo da Vinci" },
+//   { question: "What is the highest mountain in the world?", answer: "Mount Everest" }
+// ];
+
+// displayQuestions(questions);
+
+
+
 
 //setting the timer
 // function countdown (){
@@ -51,7 +104,6 @@ var timerEl = document.getElementById("time");
 
 // create a function that starts quiz on clicking start and starts the timer
 // function quizStart(q) {
-//     var titleEl = document.getElementById("#question-title");
 //     titleEl.textContent = "";
 //     titleEl.textContent = questions[q].question;
 //     var button = document.querySelectorAll("button");
@@ -66,15 +118,8 @@ var timerEl = document.getElementById("time");
 
 // var score = 0;
 
-// //   * Questions contain buttons for each answer.
-// //Set variables to create buttons for each possible answer
-// var answer1 = document.createElement("button");
-// var answer2 = document.createElement("button");
-// var answer3 = document.createElement("button");
-// var answer4 = document.createElement("button");
 
 
-//need to set it so that when timer reaches 0 the quiz finishes
        
  
 //   * 
