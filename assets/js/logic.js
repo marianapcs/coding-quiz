@@ -93,9 +93,13 @@ function answer (choice, correctAnswer) {
     }
     if (choice === correctAnswer) {
         timeLeft += 10;
+        currentQuestion += 1
+        quizQs(currentQuestion);
     }
     else {
         timeLeft -= 10;
+        currentQuestion += 1
+        quizQs(currentQuestion);
     }
 
 }
