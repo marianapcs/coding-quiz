@@ -12,6 +12,7 @@ var opinion = document.getElementById("feedback");
 // * A start button that when clicked a timer starts and the first question appears.
 
 startButton.addEventListener("click", quizStart);
+var currentQuestion = 0;
 
 function quizStart () {
     console.log('starting');
@@ -26,7 +27,7 @@ function quizStart () {
             initialForm (); //create an initials form function when timer runs out to fill out your initials for the final score
         }
     }, 1000);
-    quizQs ();
+    quizQs (currentQuestion);
 }
 
 //need to set it so that when timer reaches 0 the quiz finishes
@@ -45,19 +46,38 @@ var timerEl = document.getElementById("time");
 // var button = document.createElement("button");
 
 //create a function for your quiz questions to appear once you have clicked start
-var questionIndex = 0;
+function createEventListener (i, questionNum) {
+    return function() {
+        answer(questions[questionNum].options[i],questions [questionNum].answer);
+    }
+}
 
 
-function quizQs (questionsArray) {
-    var titleEl = document.getElementById("#question-title");
-    titleEl.innerText = questions[questionIndex].question;
-//  titleEl.setAttribute("class", "display");
-    //need to turn options array into buttons within the function - more organised and hopefully more efficient
-    for (var i = 0; i < questions[questionIndex].options.length; i++ ){
-    const button = document.createElement("button");
-    button.innerText = questions[questionIndex].options[i];
+function quizQs (questionNum) {
+    removeAllChildNodes(optionEl);
+    for (var i=1; i<5; i++)
+    {
+    var titleEl = document.getElementById("question-title");
+    titleEl.innerText = questions[questionNum].question;
+    const answerButton = document.createElement("button");
+    optionEl.append(answerButton);
+    answerButton.innerText = questions[questionNum].options[i];
+    answerButton.addEventListener("click", createEventListener(i, questionNum));
+    }
 }
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
+// //  titleEl.setAttribute("class",  "display");
+//     //need to turn options array into buttons within the function - more organised and hopefully more efficient
+//     for (var i = 0; i < questions[questionIndex].options.length; i++ ){
+//     const button = 
+//     button.innerText = questions[questionIndex].options[i];
+// }
+// }
 
 
 //   * When answer is clicked, the next question appears
@@ -65,13 +85,18 @@ function quizQs (questionsArray) {
 //   * If the answer clicked was incorrect then subtract time from the clock
 
 function answer (choice, correctAnswer) {
+    console.log(currentQuestion)
+    console.log(questions.length)
+    if(currentQuestion >= questions.length -1)
+    {
+        return console.log("done")
+    }
     if (choice === correctAnswer) {
-        score ++;
+        timeLeft += 10;
     }
     else {
         timeLeft -= 10;
     }
-
 
 }
 
