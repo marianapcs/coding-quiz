@@ -27,6 +27,7 @@ function quizStart () {
             questionEl.classList.add('hide');
             end.classList.remove('hide');
             clearInterval(timeInterval);
+            score.textContent = "Your final score is "+timeLeft;
             // initialForm (); //create an initials form function when timer runs out to fill out your initials for the final score
         }
     }, 1000);
@@ -86,15 +87,19 @@ function correctSound () {
 };
 
 function incorrectSound () {
-    var sound1 = new Audio("./assets/sfx/correct.wav");
+    var sound1 = new Audio("./assets/sfx/incorrect.wav");
     sound1.play ();
 };
 
 function answer (choice, correctAnswer) {
     console.log(currentQuestion)
     console.log(questions.length)
-    if(currentQuestion >= questions.length -1)
-    {
+    if(currentQuestion >= questions.length -1){
+        optionEl.classList.add('hide');
+            questionEl.classList.add('hide');
+            end.classList.remove('hide');
+            clearInterval(timeInterval);
+            score.textContent = "Your final score is "+timeLeft;
         return console.log("done")
     }
     if (choice === correctAnswer) {
@@ -110,10 +115,6 @@ function answer (choice, correctAnswer) {
         feedbackEl.textContent= "Incorrect!";
         incorrectSound();
     }
-    optionEl.classList.add('hide');
-        questionEl.classList.add('hide');
-        end.classList.remove('hide');
-        clearInterval(timeInterval);
     
 };
 
@@ -122,19 +123,18 @@ function answer (choice, correctAnswer) {
 // function initialForm () {
 submit.addEventListener("click",function (event){
     event.preventDefault ();
-    var scores = timeLeft;
     scores ();
     window.location.href = "highscores.html";
-    localStorage.setItem("initials", JSON.stringify(initials));
-    localStorage.setItem("score", JSON.stringify(score));
+    localStorage.setItem("initials", JSON.stringify(initials.value));
+    localStorage.setItem("score", JSON.stringify(timeLeft));
 });
 
 
 function scores () {
     localStorage.getItem("initials");
     localStorage.getItem("score");
-    initials.JSON.parse(initials);
-    score = JSON.parse(score);
+    initials.JSON.parse(initials.value);
+    score = JSON.parse(timeLeft);
 };
 
 
@@ -159,67 +159,3 @@ function scores () {
                 //       localStorage.setItem("password", password);
                 //       renderLastRegistered();
                 //     }
-
-
-      // function displayQuestions(questionsArray) {
-                //   var questionIndex = 0;
-                //   var questionContainer = document.getElementById("question-container");
-                  
-                //   function showQuestion() {
-                //     questionContainer.innerHTML = questionsArray[questionIndex].question;
-                //   }
-                  
-                //   showQuestion();
-                  
-                //   document.getElementById("next-button").addEventListener("click", function() {
-                //     questionIndex++;
-                //     if (questionIndex < questionsArray.length) {
-                //       showQuestion();
-                //     } else {
-                //       questionContainer.innerHTML = "End of quiz";
-                //     }
-                //   });
-                // }
-                
-                // var questions = [
-                //   { question: "What is the capital of France?", answer: "Paris" },
-                //   { question: "Who painted the Mona Lisa?", answer: "Leonardo da Vinci" },
-                //   { question: "What is the highest mountain in the world?", answer: "Mount Everest" }
-                // ];
-                
-                // displayQuestions(questions);
-                
-                
-                
-                
-                //setting the timer
-                // function countdown (){
-                //     var timeLeft = 60;
-                    
-                //     //use setInterval() method to call the quiz to start
-                //     var timeInterval = setInterval(function(){
-                //         timeLeft --;
-                //         timer.textContent = timeLeft;
-                //         if (timeLeft <= 0) {
-                //             clearInterval(timeLeft);
-                //             end ();
-                //         }
-                //     }, 1000);
-                // }
-                
-                // create a function that starts quiz on clicking start and starts the timer
-                // function quizStart(q) {
-                //     titleEl.textContent = "";
-                //     titleEl.textContent = questions[q].question;
-                //     var button = document.querySelectorAll("button");
-                //     //declaring a block-scoped local variable, <less than 5, ++ increment with value set to start at 0
-                //     for (let x=0; x<5; x++){
-                //         button [x+1].textContent = questions[q].options[x+1];
-                //     }
-                //     opinion.textContent = "";
-                //     return;
-                    
-                // }
-                
-                // var score = 0;
-//   });
