@@ -27,7 +27,7 @@ function quizStart () {
             questionEl.classList.add('hide');
             end.classList.remove('hide');
             clearInterval(timeInterval);
-            initialForm (); //create an initials form function when timer runs out to fill out your initials for the final score
+            // initialForm (); //create an initials form function when timer runs out to fill out your initials for the final score
         }
     }, 1000);
     quizQs (currentQuestion);
@@ -74,13 +74,7 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-// //  titleEl.setAttribute("class",  "display");
-//     //need to turn options array into buttons within the function - more organised and hopefully more efficient
-//     for (var i = 0; i < questions[questionIndex].options.length; i++ ){
-//     const button = 
-//     button.innerText = questions[questionIndex].options[i];
-// }
-// }
+
 
 
 //   * When answer is clicked, the next question appears
@@ -89,12 +83,12 @@ function removeAllChildNodes(parent) {
 function correctSound () {
     var sound = new Audio("./assets/sfx/correct.wav");
     sound.play ();
-}
+};
 
 function incorrectSound () {
     var sound = new Audio("./assets/sfx/correct.wav");
     sound.play ();
-}
+};
 
 function answer (choice, correctAnswer) {
     console.log(currentQuestion)
@@ -117,17 +111,31 @@ function answer (choice, correctAnswer) {
         incorrectSound();
     }
 
-}
+};
 
 // * The quiz should end when all questions are answered or the timer reaches 0.
 //   * When the game ends, it should display their score and give the user the ability to save their initials and their score
 // function initialForm () {
-submitButton.addEventListener("click",function (event){
+submit.addEventListener("click",function (event){
     event.preventDefault ();
+    var scores = timeLeft;
+    scores ();
+    window.location.href = "highscores.html";
+    localStorage.setItem("initials", JSON.stringify(initials));
+    localStorage.setItem("score", JSON.stringify(score));
+});
 
-})
+function scores () {
+    localStorage.getItem("initials");
+    localStorage.getItem("score");
+    initials.JSON.parse(initials);
+    score = JSON.parse(score);
+
+};
 
 
+
+//hide questions and go onto highscores page
 
 
 // signUpButton.addEventListener("click", function(event) {
