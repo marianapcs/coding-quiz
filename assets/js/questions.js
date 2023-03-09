@@ -8,7 +8,7 @@ let questions = [{
         3: "c. Range",
         4: "d. Output level",
     },
-    answer: "b",
+    answer: "b. Scope",
 },
 {
     question: "What is the element called that can continue to execute a block of code as long as the specified condition remains TRUE?",
@@ -18,7 +18,7 @@ let questions = [{
         3: "c. Loop",
         4: "d. Repeater",
     },
-    answer: "c",
+    answer: "c. Loop",
 },
 {
     question: "Which method calls a function for each element in an array?",
@@ -28,7 +28,7 @@ let questions = [{
         3: "c. each ()",
         4: "d. forEach ()",
     },
-    answer: "4",
+    answer: "d. forEach ()",
 },
 {
     question: "String values must be enclosed within ______ when assigned to variables.",
@@ -38,7 +38,7 @@ let questions = [{
         3: "c. curly brackets",
         4: "d. parentheses",
     },
-    answer: "c",
+    answer: "c. curly brackets",
 },
 {
     question: "Arrays in Javascript can be used to store ...?",
@@ -48,6 +48,6 @@ let questions = [{
         3: "c. booleans",
         4: "d. all of the above",
     },
-    answer: "4",
+    answer: "d. all of the above",
 },
 ]

@@ -86,8 +86,8 @@ function correctSound () {
 };
 
 function incorrectSound () {
-    var sound = new Audio("./assets/sfx/correct.wav");
-    sound.play ();
+    var sound1 = new Audio("./assets/sfx/correct.wav");
+    sound1.play ();
 };
 
 function answer (choice, correctAnswer) {
@@ -110,7 +110,11 @@ function answer (choice, correctAnswer) {
         feedbackEl.textContent= "Incorrect!";
         incorrectSound();
     }
-
+    optionEl.classList.add('hide');
+        questionEl.classList.add('hide');
+        end.classList.remove('hide');
+        clearInterval(timeInterval);
+    
 };
 
 // * The quiz should end when all questions are answered or the timer reaches 0.
@@ -125,12 +129,12 @@ submit.addEventListener("click",function (event){
     localStorage.setItem("score", JSON.stringify(score));
 });
 
+
 function scores () {
     localStorage.getItem("initials");
     localStorage.getItem("score");
     initials.JSON.parse(initials);
     score = JSON.parse(score);
-
 };
 
 
