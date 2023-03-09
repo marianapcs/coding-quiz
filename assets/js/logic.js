@@ -7,7 +7,7 @@ var end = document.getElementById("end-screen");
 var score = document.getElementById("final-score");
 var initials = document.getElementById("initials");
 var submit = document.getElementById("submit");
-var opinion = document.getElementById("feedback");
+var feedbackEl = document.getElementById("feedback");
 
 // * A start button that when clicked a timer starts and the first question appears.
 
@@ -23,6 +23,9 @@ function quizStart () {
         timeLeft --;
         timerEl.textContent = timeLeft;
         if (timeLeft === 0) {
+            optionEl.classList.add('hide');
+            questionEl.classList.add('hide');
+            end.classList.remove('hide');
             clearInterval(timeInterval);
             initialForm (); //create an initials form function when timer runs out to fill out your initials for the final score
         }
@@ -81,8 +84,17 @@ function removeAllChildNodes(parent) {
 
 
 //   * When answer is clicked, the next question appears
-//   * 
+//   * Correct and Incorrect answers should play sound
 //   * If the answer clicked was incorrect then subtract time from the clock
+function correctSound () {
+    var sound = new Audio("./assets/sfx/correct.wav");
+    sound.play ();
+}
+
+function incorrectSound () {
+    var sound = new Audio("./assets/sfx/correct.wav");
+    sound.play ();
+}
 
 function answer (choice, correctAnswer) {
     console.log(currentQuestion)
@@ -95,28 +107,28 @@ function answer (choice, correctAnswer) {
         timeLeft += 10;
         currentQuestion += 1
         quizQs(currentQuestion);
-    }
-    else {
+        feedbackEl.textContent= "Correct!";
+        correctSound ();
+    } else {
         timeLeft -= 10;
         currentQuestion += 1
         quizQs(currentQuestion);
+        feedbackEl.textContent= "Incorrect!";
+        incorrectSound();
     }
 
 }
 
 // * The quiz should end when all questions are answered or the timer reaches 0.
-
-function correctSound () {
-    var sound = new ("./assets/sfx/correct.wav");
-    sound.play ();
-}
-
-function incorrectSound () {
-    var sound = new ("./assets/sfx/correct.wav");
-    sound.play ();
-}
-
 //   * When the game ends, it should display their score and give the user the ability to save their initials and their score
+// function initialForm () {
+submitButton.addEventListener("click",function (event){
+    event.preventDefault ();
+
+})
+
+
+
 
 // signUpButton.addEventListener("click", function(event) {
     //     event.preventDefault();
