@@ -123,19 +123,19 @@ function answer (choice, correctAnswer) {
 // function initialForm () {
 submit.addEventListener("click",function (event){
     event.preventDefault ();
-    scores ();
+    localStorage.setItem("initials", initials.value);
+    localStorage.setItem("score", timeLeft);
+   
     window.location.href = "highscores.html";
-    localStorage.setItem("initials", JSON.stringify(initials.value));
-    localStorage.setItem("score", JSON.stringify(timeLeft));
+    // localStorage.setItem("initials", JSON.stringify(initials.value));
+    // localStorage.setItem("score", JSON.stringify(timeLeft));
 });
 
 
-function scores () {
-    localStorage.getItem("initials");
-    localStorage.getItem("score");
-    initials.JSON.parse(initials.value);
-    score = JSON.parse(timeLeft);
-};
+// function scores () {
+//     initials.JSON.parse(initials.value);
+//     score = JSON.parse(timeLeft);
+// };
 
 
 
